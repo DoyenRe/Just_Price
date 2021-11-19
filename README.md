@@ -1,3 +1,3 @@
 # Just Price
 
-Python Game
+Python Game ! 
