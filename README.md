@@ -1,6 +1,6 @@
 # Just Price
 
-This is my first Python 'Game'. The idea was to create a copy of th Just Price game. 
+This is my first Python 'Game'. The idea was to create a copy of the Just Price game. 
 
 ## Game Mode
 They are two game modes:
