@@ -4,7 +4,6 @@ import time
 
 def less():
     less_list = ['It is less.', 'Less !!', "It's less!", "Lower"]
-    less_list_close = ["It is a bit less", "You're close, bit less!"]
     n = rnd.randrange(0, len(less_list))
     print(less_list[n])
 
