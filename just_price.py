@@ -24,12 +24,11 @@ def game_start():
     print("1) Tentatives - You have a limited number of trials to find the Just Price")
     print("2) TimeOut - You have a limited time to find the Just Price")
     game_mode = input('Which mode do you want to play? ')
-    print(game_mode.format)
     if game_mode == '2':
         game_mode_timeout()
     elif game_mode == '1':
         game_mode_tentative()
-    print(game_mode)
+
 
 def game_mode_timeout():
     price = rnd.randrange(0, 1000)
@@ -89,4 +88,15 @@ def replay_game():
     else:
         game_end_bye()
 
-game_start()
+#game_start()
+
+
+s = 'https://ja.wikipedia.org/wiki/'\
+    '%E3%83%97%E3%83%AD%E3%82%B0%E3%83'\
+    '%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E'
+
+instruction_txt = 'In this game, there are two game modes :  \n \n 1) Tentatives'\
+                  ' - You have a limited number of trials to find the Just Price \n 2) TimeOut'\
+                  ' - You have a limited time to find the Just Price \n \n Which one do you want to play?'
+
+print(instruction_txt)
