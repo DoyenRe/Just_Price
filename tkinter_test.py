@@ -2,6 +2,15 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import random2 as rnd
 
+# To be done :
+#    Tentative counter
+#    sound in case of victore / Defeat
+#    Game Over to be improved
+#    Eastethic
+#    TimeOut Mode
+#    Make sure it is usable everywhere (no link of the picture)
+#    Clean the code
+
 def less():
     less_list = ['It is less.', 'Less !!', "It's less!", "Lower"]
     n = rnd.randrange(0, len(less_list))
@@ -15,13 +24,11 @@ def more():
 root = tk.Tk()
 root.title('Juste Price - The Game')
 canvas = tk.Canvas(root, width = 500, height=500)
-canvas.grid(columnspan=10, rowspan=100)
+canvas.grid(columnspan=10, rowspan=10)
 
 
 #Logo
-path = '/Users/rdoyen/PythonProject/Just_Price/image/unnamed.png'
-logo = Image.open(path)
-logo = logo.resize((100,100))
+logo = Image.open('/Users/rdoyen/PythonProject/Just_Price/image/unnamed.png').resize((100,100))
 logo = ImageTk.PhotoImage(logo)
 logo_label = tk.Label(image=logo, borderwidth=0, highlightthickness=0, state='normal')
 logo_label.image = logo
@@ -60,8 +67,7 @@ def function_button_1():
     canvas.create_window(200, 140, window=entry1)
     canvas.grid(column=5, row=11)
     tentative = 0
-   #price = rnd.randrange(0, 100)
-    price = 50
+    price = rnd.randrange(0, 100)
     def validate():
         global tentative, text_lbl, end_game, button_game_replay, victory_label
         entry_proposal = entry1.get()
