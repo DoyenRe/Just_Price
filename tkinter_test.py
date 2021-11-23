@@ -5,12 +5,12 @@ import random2 as rnd
 def less():
     less_list = ['It is less.', 'Less !!', "It's less!", "Lower"]
     n = rnd.randrange(0, len(less_list))
-    print(less_list[n])
+    return(less_list[n])
 
 def more():
     more_list = ['It is more.', 'More !!', "It's more!", "Higher"]
     n = rnd.randrange(0, len(more_list))
-    print(more_list[n])
+    return(more_list[n])
 
 root = tk.Tk()
 root.title('Juste Price - The Game')
@@ -38,36 +38,57 @@ instruction_text = tk.Label(root, text='In this game, there are two game modes :
 fg = 'black', font='Raleway 23')
 instruction_text.grid(column=0, row=10)
 
+text_lbl = None
+
 #Function Buttons
 def function_button_1():
-    global price, tentative
+    global tentative, text_lbl
     tk.Label(root, text = 'Mode Tentative', font='Raleway 23 bold').grid(column=5, row=10)
+    if text_lbl is not None: 
+        text_lbl.destroy()
     entry1 = tk.Entry(root)
     canvas.create_window(200, 140, window=entry1)
     canvas.grid(column=5, row=11)
     tentative = 0
     price = rnd.randrange(0, 100)
     def validate():
-        global tentative
+        global tentative, text_lbl
         entry_proposal = entry1.get()
-        print(entry_proposal)
-        if tentative < 10:
+        if tentative == 0:
             if int(entry_proposal) == price:
                 print('GG')
                 tentative += 1
-                print(tentative)
             elif int(entry_proposal) > price: 
-                less()
+                text_lbl = tk.Label(root,text=less(), fg = 'red', font='Raleway 23')
+                text_lbl.grid(column=6, row=12)
                 tentative += 1
-                print(tentative)
             else: 
-                more()
+                text_lbl = tk.Label(root,text=more(), fg = 'green', font='Raleway 23')
+                text_lbl.grid(column=6, row=12)
                 tentative += 1
-                print(tentative)
+        if 0 < tentative <= 10:
+            if int(entry_proposal) == price:
+                print('GG')
+                tentative += 1
+            elif int(entry_proposal) > price: 
+                text_lbl.destroy()
+                text_lbl = tk.Label(root,text=less(), fg = 'red', font='Raleway 23')
+                text_lbl.grid(column=6, row=12)
+                tentative += 1
+            else: 
+                text_lbl.destroy()
+                text_lbl = tk.Label(root,text=more(), fg = 'green', font='Raleway 23')
+                text_lbl.grid(column=6, row=12)
+                tentative += 1
         else: 
-            print('You Lost')
+            text_lbl.destroy()
+            button_game_val.destroy()
+            game_over = tk.Label(root,text='Game Over \n No more tentative', fg = 'black', font='Raleway 23')
+            game_over.grid(column=6, row=12)
 
-    #Button game 1
+
+
+    #Button Validate
     button_game_val_text = tk.StringVar()
     button_game_val = tk.Button(root, textvariable=button_game_val_text, font='Times 18 bold', command=validate)
     button_game_val_text.set('Validate')    
