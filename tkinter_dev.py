@@ -13,11 +13,25 @@ def place_text(master, txt, x, y, bg, j='center', fg='black', font='Times', wrap
     text = tk.Label(master=master, text=txt, font=font, bg=bg, fg=fg, justify=j,wraplength=wraplength )
     text.place(x=x, y=y)
 
-def place_button(master, text, x, y, bg, command, fg='black' ,font='Times'):
+def place_button(master, text, x, y, bg, command=None, fg='black' ,font='Times'):
     button_text = tk.StringVar()
     button = tk.Button(master=master, textvariable=button_text, font=font, command=command, highlightbackground=bg, fg=fg, bg=bg, highlightcolor=bg, activebackground=bg)
     button_text.set(text)
     button.place(x=x, y=y)
+
+def place_user_entry(master, x, y):
+    user_entry = tk.Entry(master)
+    user_entry.place(x=x, y=y)
+
+def validate():
+    None
+
+def replay():
+    root.delete('ALL')
+
+def quit():
+    print('leave')
+    root.destroy()
 
 root = tk.Tk()
 
@@ -39,7 +53,7 @@ place_image(photo, '#e71b24', 5, 5)
 place_image(photo, '#e71b24', 1110, 5)
 place_text(master=root, txt='The Price is Right',bg="#e71b24", x=524, y=35, font='Calibri 18', fg='white')
 
-#Left Pan - Instruction
+#Instruction
 instruction_txt = 'In this game, there are two game modes :  \n \n 1) Tentatives'\
                   ' - You have a limited number of trials to find the Just Price \n 2) TimeOut'\
                   ' - You have a limited time to find the Just Price \n \n Which one do you want to play?'
@@ -53,8 +67,21 @@ image = Image.open("/Users/rdoyen/PythonProject/Just_Price/image/wip.png")
 photo = ImageTk.PhotoImage(image.resize((30, 30)))
 place_image(photo, '#fbda74', 100, 371)
 
+# Game mode choice
+tentative_explanation = "In the Tentative mode, you'll have to guess a random number between 0 and 100. \nIn order to "\
+                        "win the game, you'll have to discover the number in 10 tentatives or less! \n Good Luck !"
+
 def gm_tentative():
     place_text(root, 'Mode Tentative', 531, 105, '#fbda74', j='center', font='Helvetica 18 bold underline')
+    place_text(root, tentative_explanation, 340, 135, '#fbda74', j='left', font='Helvetica 18', wraplength=510)
+    place_text(root, 'Proposal : ', 340, 300, '#fbda74', j='left', font='Helvetica 18 bold underline')
+    place_text(root, 'Remaining guess : ', 340, 550, '#fbda74', j='left', font='Helvetica 18 bold underline')
+    place_button(root, 'Validate', 780, 350, font='Helvetica 16 bold', bg='red', command=validate)
+    place_button(root, 'Replay', 890, 500, font='Helvetica 16 bold', bg='red', command=replay)
+    place_button(root, 'Quit', 1150, 615, font='Helvetica 16 bold', bg='red', command=quit)
+    place_user_entry(root, 503, 350)
+
+
 
 def gm_timeout():
     global text
@@ -65,7 +92,6 @@ def gm_timeout():
 y_button = 340
 place_button(master=root, text='Tentative', x=25, y=y_button,  bg="red", font='Helvetica 16 bold', command=gm_tentative)
 place_button(master=root, text='TimeOut', x=25, y=y_button+35, bg='red', font='Helvetica 16 bold', command=gm_timeout)
-
 
 #Display
 root.mainloop()
