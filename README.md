@@ -11,7 +11,6 @@ Good luck !
 ![Game](https://raw.githubusercontent.com/DoyenRe/Just_Price/main/image/game.png "Game")
 
 ## The Game
------------------------
 They are two game modes:
 1) **Tentatives** : The user has a limited number (10) of guess to discover the price of the item.
 2) **TimeOut** (Work In Progress): The user has a limited number of time (60 seconds) to discover the price of the item. 
@@ -21,13 +20,12 @@ Notice that for now, no real price is used. The script is simply generating a ra
 
 
 ## Content 
-------------
 * /app.py - The actual Python app
 * /images - Contains the images used in the app
 * /mockup - Contains the original mockups of the project
 
 ## Remaining things to do 
--------
+
 The project is still in progress:
 * The second 'TimeOut' mode still have to be developped. 
 * Use a real price instead of a randomly generated number
