@@ -29,3 +29,4 @@ Notice that for now, no real price is used. The script is simply generating a ra
 The project is still in progress:
 * The second 'TimeOut' mode still have to be developped. 
 * Use a real price instead of a randomly generated number
+* Make the code 'cleaner'
