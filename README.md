@@ -1,8 +1,10 @@
 # The Price is right ! 
 <p align="center">
+  
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/oooo-kill-em.svg)](https://forthebadge.com)
+  
 </p>
 The **Price is Right** is a television game show. In the show, contestants compete to win cash & prizes by guessing the price of merchandise. 
 This simple python game wants to copy the mecanics of the TV show. Indeed, in order to win, you'll have to guess a price randomly deciced by the script ! 
